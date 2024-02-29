@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10-Day Countdown Timer</title>
+
+  
+  <style> 
+  
+
+    #countdown {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      font-size: 50px;
+      border: 2px sold #ccc;
+      margin-top: 50px;
+      border: radius 5px;
+      color: #ccc;
+      justify-content: center;
+      display: flex;
+    }
+
+    .box{
+      width:50px;
+      height:50px;
+      background-color: navy;
+      border: 2px solid black;
+      margin: 10px;
+      text-align: center;
+      line-height: 50px;
+      font-size: 24px;
+    }
+      
+    
+    
+    h1{
+        color:navy;
+        font-family: Arial , sans-serif;
+        text-align: center;
+    }
+    h2{
+        color:navy;
+        font-family: Arial , sans-serif;
+        text-align: center;
+    }
+    h3{
+        color:navy;
+        font-family:Monaco;
+        text-align: center;
+    }
+    
+    body{
+        background-color:black;
+    }
+  </style>
+</head>
+<body>
+  <img id="centeredImage"  src="new iphone12.jpg" width="500px" height="300px" alt="iPhone12 pro" ><br>
+
+  <h1> OLD iPHONE GIVEAWAY </h1> <br>
+  <h2> Giveaway Ends On Sunday, 25 February 2024 At 11:30am</h2><br>
+  <h3>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum sint, ducimus id nobis quis placeat reprehenderit saepe reiciendis, eius iure fuga itaque, ullam numquam qui!</h3><br>
+  
+  <div id="countdown">
+  <div class="countdown" ></div>
+ <div class="box" id="daysBox"> </div>
+  <div class="box" id="hoursBox"> </div>
+  <div class="box" id="minutesBox"></div>
+  <div class="box" id="secondsBox"></div>*/
+</div>
+
+
+<script>
+  // Set the date for the end of the countdown (10 days from now)
+  var endDate = new Date();
+  endDate.setDate(endDate.getDate() + 10);
+
+  // Update the countdown every second
+  var countdownInterval = setInterval(function() {
+    var now = new Date().getTime();
+    var distance = endDate - now;
+
+    // Calculate days, hours, minutes, and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    /*Display the countdown in boxes
+    document.getElmentById("daysBox").innerHTML=days;
+    document.getElementById("hoursBox").innerHTML=("0"+hours).slice(-2);
+    document.getElementById("minutesBox").innerHTML=("0"+minutes).slice(-2);
+    document.getElementById("secondsBox").innerHTML=("0"+seconds).slice(-2);*/
+
+
+    // Display the countdown in the element with id="countdown"
+    document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+
+    // If the countdown is over, display a message
+    if (distance < 0) {
+      clearInterval(countdownInterval);
+      document.getElementById("countdown").innerHTML = "Countdown over!";
+    }
+  }, 1000);
+</script>
+
+
+
+
+</body>
+</html>
